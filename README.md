@@ -39,7 +39,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|name|varchar(100)|null: false|
+|text|varchar(100)|null: false|
 |user|refference|null: false, foreign_key: true|
 |group|refference|null: false, foreign_key: true|
 
