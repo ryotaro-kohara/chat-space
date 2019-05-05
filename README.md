@@ -29,7 +29,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|varchar(15)|null: false|
-|tweet_id|integer|null: false, foreign_key: true|
+|tweet|refference|null: false, foreign_key: true|
 
 ### Association
 - has_many :tweets
@@ -40,8 +40,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|varchar(100)|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|groups_id|integer|null: false, foreign_key: true|
+|user|refference|null: false, foreign_key: true|
+|group|refference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -61,8 +61,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|groups_id|integer|null: false, foreign_key: true|
+|user|refference|null: false, foreign_key: true|
+|group|refference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
