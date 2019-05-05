@@ -29,7 +29,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|varchar(15)|null: false|
-|tweet|refference|null: false, foreign_key: true|
 
 ### Association
 - has_many :tweets
