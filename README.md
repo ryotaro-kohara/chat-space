@@ -33,6 +33,7 @@ Things you may want to cover:
 ### Association
 - has_many :tweets
 - has_many :groups, through: :users_groups
+- has_many :users_groups
 
 ## messagesテーブル
 
@@ -55,6 +56,7 @@ Things you may want to cover:
 ### Association
 - has_many :tweets
 - has_many :user, through: :users_groups
+- has_many :users_groups
 
 # users_groupsテーブル
 
