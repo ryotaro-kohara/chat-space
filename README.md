@@ -22,3 +22,49 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+## usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|varchar(15)|null: false|
+
+### Association
+- has_many :tweets
+- has_many :groups, through: :users_groups
+- has_many :users_groups
+
+## messagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|text|varchar(100)|null: false|
+|user|refference|null: false, foreign_key: true|
+|group|refference|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :group
+
+## groupsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|varchar(20)|null: false|
+
+### Association
+- has_many :tweets
+- has_many :user, through: :users_groups
+- has_many :users_groups
+
+# users_groupsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user|refference|null: false, foreign_key: true|
+|group|refference|null: false, foreign_key: true|
+
+### Association
+- belongs_to :group
+- belongs_to :user
