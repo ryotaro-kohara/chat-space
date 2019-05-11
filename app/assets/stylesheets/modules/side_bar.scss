@@ -33,12 +33,12 @@
     .group{
       box-sizing: border-box;
       padding: 20px 0 40px;
-      &__name{
-      font-size: $side_group_name;
-      }
-      &__message{
+        &__name{
+        font-size: $side_group_name;
+        }
+        &__message{
         font-size: $side_group_message;
         margin-top: 5px;
+        }
       }
     }
-  }
