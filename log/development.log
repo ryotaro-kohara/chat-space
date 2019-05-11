@@ -2000,3 +2000,17 @@ Processing by MessagesController#index as HTML
 Completed 200 OK in 34ms (Views: 31.8ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2019-05-11 12:44:42 +0900
+Processing by MessagesController#index as HTML
+  Rendering messages/index.html.haml within layouts/application
+  Rendered messages/index.html.haml within layouts/application (33.0ms)
+Completed 200 OK in 490ms (Views: 481.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-05-11 14:23:36 +0900
+Processing by MessagesController#index as HTML
+  Rendering messages/index.html.haml within layouts/application
+  Rendered messages/index.html.haml within layouts/application (22.1ms)
+Completed 200 OK in 85ms (Views: 79.5ms | ActiveRecord: 0.0ms)
+
+
