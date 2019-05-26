@@ -20,9 +20,9 @@ $(function() {
   function appendToGroup(name,id){
     var html =
     `<div class='chat-group-user clearfix js-chat-member' >
-    <input name='group[user_ids][]' type='hidden' value='${id}'>
-    <p class='chat-group-user__name'>${name}</p>
-    <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
+      <input name='group[user_ids][]' type='hidden' value='${id}'>
+      <p class='chat-group-user__name'>${name}</p>
+      <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
     </div>`
     $("#chat-group-users").append(html);
   }
@@ -38,14 +38,14 @@ $(function() {
     })
     .done(function(users){
       $("#user-search-result").empty();
-     if (users.length !== 0) {
-       users.forEach(function(user){
-       buildHTML(user);
-       });
-     }
-     else {
-       appendErrMsgToHTML("一致するユーザーが見つかりません");
-     }
+      if (users.length !== 0) {
+        users.forEach(function(user){
+        buildHTML(user);
+        });
+      }
+      else {
+        appendErrMsgToHTML("一致するユーザーが見つかりません");
+      }
     })
     .fail(function(){
       alert('error');
