@@ -20,6 +20,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @name = current_user.name
   end
 
   def update
