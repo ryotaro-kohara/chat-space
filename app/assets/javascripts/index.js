@@ -40,7 +40,6 @@ $(function() {
       $("#user-search-result").empty();
      if (users.length !== 0) {
        users.forEach(function(user){
-         console.log(user)
        buildHTML(user);
        });
      }
@@ -56,7 +55,6 @@ $(function() {
   $(document).on("click", ".user-search-add", function(){
     var name = $(this).data('user-name');
     var userId = $(this).data('user-id');
-    console.log(this);
     $(this).parent('.chat-group-user.clearfix').remove();
     appendToGroup(name,userId);
   });
