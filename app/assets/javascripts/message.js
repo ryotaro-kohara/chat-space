@@ -43,4 +43,64 @@ $('.js-form').on("submit", function(e){
     })
     return false;
    });
+
+   var buildMessageHTML = function(message) {
+    var name_create_at = 
+      '<div class="upper-message">' +
+        '<div class="upper-message__user-name">' +
+          message.user_name +
+        '</div>' +
+        '<div class="upper-message__date">' +
+          message.created_at +
+        '</div>' +
+      '</div>'
+    var content = 
+      '<p class="lower-message__content">' +
+        message.content +
+      '</p>'
+    var image = '<img src="' + message.image.url + '" class="lower-message__image" >'
+    if (message.content && message.image.url) {
+      var html = '<div class="message" data-id=' + message.id + '>' +
+        name_create_at +
+        '<div class="lower-message">' +
+          content + image +
+        '</div>' +
+      '</div>'
+    } else if (message.content) {
+      var html = '<div class="message" data-id=' + message.id + '>' +
+        name_create_at +
+        '<div class="lower-message">' +
+          content +
+        '</div>' +
+      '</div>'
+    } else if (message.image.url) {
+      var html = '<div class="message" data-id=' + message.id + '>' +
+        name_create_at +
+        '<div class="lower-message">' +
+          image +
+        '</div>' +
+      '</div>'
+    };
+    return html;
+  };
+   
+   var reloadMessages = function() {
+    last_message_id = $('.messages:last').data('id');
+    $.ajax({
+      url: url,
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      console.log('success');
+      var inserthtml = buildMessageHTML(messages);
+      $('.messages').append(inserthtml);
+      $('.main-body').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  };
+  setInterval(reloadMessages, 5000);
 });
