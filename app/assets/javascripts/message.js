@@ -58,8 +58,8 @@ $('.js-form').on("submit", function(e){
       '<p class="lower-message__content">' +
         message.content +
       '</p>'
-    var image = '<img src="' + message.image.url + '" class="lower-message__image" >'
-    if (message.content && message.image.url) {
+    var image = '<img src="' + message.image + '" class="lower-message__image" >'
+    if (message.content && message.image) {
       var html = '<div class="message" data-id=' + message.id + '>' +
         name_create_at +
         '<div class="lower-message">' +
@@ -73,7 +73,7 @@ $('.js-form').on("submit", function(e){
           content +
         '</div>' +
       '</div>'
-    } else if (message.image.url) {
+    } else if (message.image) {
       var html = '<div class="message" data-id=' + message.id + '>' +
         name_create_at +
         '<div class="lower-message">' +
@@ -85,12 +85,14 @@ $('.js-form').on("submit", function(e){
   };
    
    var reloadMessages = function() {
-    last_message_id = $('.messages:last').data('id');
+    last_message_id = $('.message:last').data('id');//一番最後にある'message'というクラスの'id'というデータ属性を取得し、'last_message_id'という変数に代入
     $.ajax({
-      url: url,
+      url: '/api/messages',
       type: 'get',
       dataType: 'json',
-      data: {id: last_message_id}
+      data: {
+        message:{id: last_message_id}//このような形(paramsの形をしています)で、'id'には'last_message_id'を入れる
+      },
     })
     .done(function(messages) {
       console.log('success');
