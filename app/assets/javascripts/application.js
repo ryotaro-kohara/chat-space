@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//  require turbolinks
+// ↑ページ移行した時にjsを先に走らせるもの
 //= require_tree .
