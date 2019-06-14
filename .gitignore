@@ -17,3 +17,4 @@
 .byebug_history
 log/development.log
 public/uploads/*
+config/secrets.yml
